@@ -7,14 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const searchTerm = document.querySelector("#search-term").value.trim()
         const APIURL = API + searchTerm;
-        console.log(APIURL);
+        //console.log(APIURL);
         fetchData(APIURL);
+        searchForm.reset();
     })
 })
 
 async function fetchData(url) {
+    const loadingMessage = document.createElement("h2");
+    loadingMessage.textContent = "Loading...";
+    infoDisplay.replaceChildren()
+    infoDisplay.appendChild(loadingMessage)
     try {
         const response = await fetch(url);
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.title || 'Word not found. Please try another term.');
+        }
         const data = await response.json();
         renderWordDetails(data);
     } catch (error) {
@@ -41,7 +50,7 @@ function renderWordDetails(data) {
             const definitionParagraph = document.createElement("blockquote");
             for (const key in terminology) {
                 if (key === "definition") definitionParagraph.textContent = terminology[key];
-                console.log(definitionParagraph)
+                //console.log(definitionParagraph)
                 infoDisplay.appendChild(definitionParagraph)
             }
         })

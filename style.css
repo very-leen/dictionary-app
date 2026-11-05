@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(to bottom, #e3f5e1 0%, #ffffff 100%);
+    background-attachment: fixed;
+    color: #1a1a1a;
+    padding: 2.5rem 1rem 3rem;
+}
+
+/* Title — well padded, green, thick font */
+.app-title {
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    font-style: italic;
+    padding: 1.5rem 1rem 2rem;
+    margin: 0;
+}
+
+/* Form */
+.search-form {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+#search-term {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    border: 1px solid #b8dcc0;
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#search-term:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+}
+
+.search-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1b4d1f;
+    background-color: #a5d6a7;
+    border: 1px solid #8fca92;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.search-btn:hover {
+    background-color: #8fca92;
+    border-color: #7bbf7a;
+}
+
+#search-term:active {
+    transform: scale(0.97);
+}
+
+/* Info display */
+#info-display {
+    padding: 0 0.25rem;
+}
+
+/* Word heading — bold green */
+#info-display h2 {
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+}
+
+/* Part of speech (small) — green, well padded */
+#info-display small {
+    display: inline-block;
+    color: #2e7d32;
+    background-color: #e3f5e1;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Definitions — black text */
+#info-display blockquote {
+    margin: 0 0 0.75rem;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #a5d6a7;
+    color: #1a1a1a;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Synonyms heading — bold green */
+#info-display h4 {
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 1.25rem 0 0.5rem;
+}
+
+/* Synonym / fallback paragraphs */
+#info-display p {
+    margin: 0 0 0.35rem;
+    color: #1a1a1a;
+}
+
+/* Loading / error states */
+.status-message {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 1.05rem;
+    color: #2e7d32;
+}
+
+.status-message.error {
+    color: #c62828;
+}
